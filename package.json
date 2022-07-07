@@ -74,7 +74,10 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "preinstall": "npx npm-force-resolutions"
+    "preinstall": "npx npm-force-resolutions",
+    "start": "npx live-server --open=src",
+    "build": "gulp clean build",
+    "build-all-in-one": "gulp clean build-bundle"
   },
   "browsers": [
     "> 1%",

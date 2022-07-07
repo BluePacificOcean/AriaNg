@@ -161,6 +161,15 @@
                     return scope.optionValue.split(scope.option.split).length;
                 };
 
+                scope.getDirPath = function () {
+                    electron.openSelectPathDialog().then(path => {
+                        scope.changeValue(path, true)
+                        if(location.hash === '#!/settings/aria2/basic') {
+                            electron.updateAria2Config('dir', path)
+                        }
+                    })
+                };
+
                 scope.changeValue = function (optionValue, lazySave) {
                     if (pendingSaveRequest) {
                         $timeout.cancel(pendingSaveRequest);
